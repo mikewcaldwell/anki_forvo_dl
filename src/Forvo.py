@@ -73,7 +73,13 @@ class Forvo:
 
         # Set a user agent so that Forvo/CloudFlare lets us access the page
         opener = urllib.request.build_opener()
-        opener.addheaders = [('User-Agent', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36')]
+        headers = [
+            ('User-Agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'),
+            ('Accept', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'),
+            ('Accept-Language', 'en-US,en;q=0.5'),
+            ('Referer', 'https://forvo.com/')
+        ]
+        opener.addheaders = headers
         urllib.request.install_opener(opener)
 
     def load_search_query(self):
